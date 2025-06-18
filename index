@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jira Issue Collector Test</title>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Jira Issue Collector Test Page</h1>
+    <p>Click the button below to open the Jira Issue Collector.</p>
+    <button id="openCollector">Report an Issue</button>
+
+    <!-- Jira Issue Collector Script -->
+    <script src="https://jira.virtuosgames.com:8443/plugins/servlet/issueCollectorBootstrap.js?collectorId=14a0bfb8&locale=en_US"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#openCollector').on('click', function() {
+                if (typeof window.IssueCollector !== 'undefined') {
+                    window.IssueCollector.launch();
+                } else {
+                    alert('IssueCollector script not loaded yet.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
